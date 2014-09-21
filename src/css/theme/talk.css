@@ -155,7 +155,7 @@ body {
   color: #13daec; }
 
 .reveal.center {
-  background-image: url("/img/background.jpg");
+  background-image: url("../../img/background.jpg");
   background-color: #2b2b2b; }
   .reveal.center .slides section {
     min-height: 100%; }
