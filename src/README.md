@@ -18,6 +18,16 @@ You should just edit the source file at src/README.md - the one which stars with
 
 ---
 
+## Tiago Garcia
+
+<img src="http://www.gravatar.com/avatar/5cac784a074b86d771fe768274f6860c?s=250" class="avatar">
+
+- Technical Manager at [Avenue Code](http://www.avenuecode.com) and Technical Leader at [Macys.com](http://www.macys.com).
+- Organizer of the [Backbone.js Hackers meetup in San Francisco](http://www.meetup.com/Backbone-js-Hackers).
+- Heavily interested in cutting-edge front-end technologies. 
+
+---
+
 ## Agenda
 
  - The jQuery Way
@@ -586,7 +596,7 @@ You should just edit the source file at src/README.md - the one which stars with
 
 ## Challenge
 
-1. Pick your *Quiz App* or come up with a brand new Backbone.js application which requires interaction with the user.
-1. Implement both *Marionette.js* and *Epoxy.js* on this project. Explore them well and use their features as much as possible.
+1. Fork my [Quiz App](https://github.com/tiagorg/quiz-app) or come up with a brand new Backbone.js application which requires interaction with the user.
+1. Implement *Marionette.js* and either *React.js* or *Epoxy.js* on this project. Explore them well and use their features as much as possible.
 1. Evaluate the pros and cons of your solution regarding the adoption of such frameworks, in terms of code organization, verbosity, scalability and robustness.
-1. Send me your evaluation and the project in a GitHub repo.
+1. Send me your analysis and project in a GitHub repo.

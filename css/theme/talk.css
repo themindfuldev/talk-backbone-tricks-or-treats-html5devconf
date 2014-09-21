@@ -1,9 +1,9 @@
-@import url(https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic);
 /**
  * Default theme for reveal.js.
  *
  * Copyright (C) 2011-2012 Hakim El Hattab, http://hakim.se
  */
+@import url(https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic);
 @font-face {
   font-family: 'Quicksand';
   font-style: normal;
@@ -22,7 +22,13 @@
  * GLOBAL STYLES
  *********************************************/
 body {
-  background-image: url("/img/background.jpg");
+  background: #1c1e20;
+  background: -moz-radial-gradient(center, circle cover, #555a5f 0%, #1c1e20 100%);
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #555a5f), color-stop(100%, #1c1e20));
+  background: -webkit-radial-gradient(center, circle cover, #555a5f 0%, #1c1e20 100%);
+  background: -o-radial-gradient(center, circle cover, #555a5f 0%, #1c1e20 100%);
+  background: -ms-radial-gradient(center, circle cover, #555a5f 0%, #1c1e20 100%);
+  background: radial-gradient(center, circle cover, #555a5f 0%, #1c1e20 100%);
   background-color: #2b2b2b; }
 
 .reveal {
@@ -148,11 +154,16 @@ body {
 .reveal .slide-number {
   color: #13daec; }
 
+.reveal.center {
+  background-image: url("/img/background.jpg");
+  background-color: #2b2b2b; }
   .reveal.center .slides section {
     min-height: 100%; }
-    .reveal.center .slides section img.logo {
-      max-height: 250px;
-      border: 0; }
+    .reveal.center .slides section img.avatar {
+      -webkit-border-radius: 10px;
+      -moz-border-radius: 10px;
+      border-radius: 10px;
+      border: 2px solid black; }
     .reveal.center .slides section ul.full {
       width: 100%; }
     .reveal.center .slides section img.marionette {

@@ -47,22 +47,18 @@ $heading1TextShadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b
 // ---------------------------------------------
 
 .reveal.center {
-  background: #415b77;
-  background: -moz-radial-gradient(center, circle cover, #415b77 0%, #2c3e50 100%);
-  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #415b77), color-stop(100%, #2c3e50));
-  background: -webkit-radial-gradient(center, circle cover, #415b77 0%, #2c3e50 100%);
-  background: -o-radial-gradient(center, circle cover, #415b77 0%, #2c3e50 100%);
-  background: -ms-radial-gradient(center, circle cover, #415b77 0%, #2c3e50 100%);
-  background: radial-gradient(center, circle cover, #415b77 0%, #2c3e50 100%);
-  background-color: #2c3e50;
+  background-image: url("/img/background.jpg");
+  background-color: #2b2b2b;
 
   .slides {
     section {
       min-height: 100%;
 
-      img.logo {
-        max-height: 250px;
-        border: 0;
+      img.avatar {
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        border-radius: 10px;
+        border: 2px solid black;
       }
 
       ul.full {

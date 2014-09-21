@@ -127,14 +127,14 @@ module.exports = function(grunt) {
           'css/styles.min.css': ['css/styles.css'],
           'css/print/paper.min.css': ['css/print/paper.css'],
           'css/print/pdf.min.css': ['css/print/pdf.css'],
-          'css/theme/avenuecode.min.css': ['css/theme/avenuecode.css']
+          'css/theme/talk.min.css': ['css/theme/talk.css']
         }
       }
     },
     sass: {
       main: {
         files: {
-          'src/css/theme/avenuecode.css': 'src/css/theme/source/avenuecode.scss',
+          'src/css/theme/talk.css': 'src/css/theme/source/talk.scss',
         }
       }
     },
