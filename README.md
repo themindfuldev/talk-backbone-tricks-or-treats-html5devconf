@@ -39,8 +39,8 @@ Oct 20th, 2014
  - Cohesion
  - Coupling
  - Data binding
- - Getting more reactive Views
- - Mocking AJAX
+ - More reactive Views
+ - Mocking async calls
 
 ---
 
@@ -53,20 +53,39 @@ Oct 20th, 2014
 
 ---
 
+## AJAX Rant
+
+- Think twice before saying AJAX ever again.
+- AJAX = *A*synchronous *J*avascript *A*nd *X*ML.
+- AJAJ = *A*synchronous *J*avascript *A*nd *J*SON.
+- Some will say it is because of *XMLHttpRequest* but I don't buy it. *XMLHttpRequest* can transfer any format.
+- RESTful servers became popular -> I don't quite see XML responses ever since.
+- No simple XML support on popular MV* frameworks.
+- However, *AJAJ* doesn't sound as cool as *AJAX* so presenters don't like to use it.
+- *ASYNC*, FTW! Who will join me?
+
+----
+
+## ASYNC
+
+<img src="img/async.jpg">
+
+---
+
 ## The jQuery Way
 
-- Backbone depends on jQuery, but depending !== abusing.
-- Newbies tend to adopt jQuery-based solutions instead of taking advantage of Backbone.js structures:
-  - *Backbone.Model* takes care of AJAX calls so they **SHOULDN'T** be coded like *`$.ajax()`*.
+- Backbone depends on jQuery*, but depending !== abusing.
+- Starters tend to adopt jQuery-based solutions instead of taking advantage of Backbone.js structures:
+  - *Backbone.Model* takes care of async calls so they **SHOULDN'T** be coded like *`$.ajax()`*.
   - *Backbone.View* takes care of DOM events binding so they **SHOULDN'T** be coded like *`$(el).click(...)`*.
-- A common scenario in code migrations to Backbone, but simple to fix. Just have the Models and Views to do their work.
+- A common scenario in code migrations to Backbone, but simple to fix. Just put Models and Views to do their work.
 - Follow [Step by step from jQuery to Backbone](https://github.com/kjbekkelund/writings/blob/master/published/understanding-backbone.md) to shed some light on this process.
 
 ---
 
 ## Views and Memory leaks
 
-- Backbone leaves the code structure for to the developer to define and implement.
+- Backbone leaves the code structure for the developer to define and implement.
 - Bad designs easily lead to memory leaks.
 ```javascript
   var MyView = Backbone.View.extend({
@@ -107,7 +126,7 @@ Oct 20th, 2014
 
 ## Marionette.js
 
-<img src="img/marionette.png" class="marionette" />
+<img src="img/marionette.png" class="icon" />
 
 <ul class="full">
   <li>A Backbone.js composite application library to <br/>provide structure for large-scale Javascript.</li>
@@ -473,7 +492,7 @@ Oct 20th, 2014
 
 ## Data binding
 
-- Backbone.js data binding is very primitive while other MV* frameworks (Ember.js, Knockout.js and AngularJS) excel on it.
+- Backbone.js data binding is primitive while other MV* frameworks (Ember.js, Knockout.js, AngularJS) excel on it.
 - This code re-renders the whole View for each Model's change:
 ```javascript
   var MyView = Backbone.View.extend({
@@ -489,6 +508,8 @@ Oct 20th, 2014
 ----
 
 ## Epoxy.js
+
+<img src="img/epoxy.png" class="icon" />
 
 - *Epoxy.js* is a data binding library for Backbone.js based on Knockout.js and Ember.js, featuring:
   - Declarative View Bindings
@@ -530,22 +551,36 @@ Oct 20th, 2014
 
 ---
 
-## Overreacting
+## More reactive Views
+
+<img src="img/react.png" class="icon" />
+
+- *Backbone.View* is not designed for performance.
+- CPU-intensive rendering is faded to hang/crash.
+- *React.js* takes it to the next level by using:
+  - Virtual DOM
+  - Data flow instead of Data binding
+  - Bonus: works on the server-side!
+- *React.js* can be used as the V of the MV*, replacing/supporting *Backbone.View*s.
+- Just needs a mixin to be integrated with Backbone, or something like [react.backbone](https://github.com/clayallsopp/react.backbone)
 
 http://jsfiddle.net/jhohlfeld/cS66g/light/
+http://jsfiddle.net/tiagorg/5L9qxnsq/1/
 
 ---
 
-## Mocking AJAX
+## Mocking async calls
 
 - How to unit test Models that consume data from a server?
 - Using a real server can be slow, and the server must be up at all times, otherwise the tests will probably fail.
 - By using mocks we no longer depend on a server, however it deviates from testing the model the way it will be used in Production.
-- What about replacing the browser AJAX with a fake AJAX powered with mocks?
+- What about replacing the browser async mechanism with a mock-powered proxy?
 
 ----
 
 ## Sinon.JS
+
+<img src="img/sinon.png" class="icon" />
 
 - Provides test spies, stubs and mocks for JavaScript.
 - Works with any unit testing framework and also standalone.
@@ -573,7 +608,7 @@ http://jsfiddle.net/jhohlfeld/cS66g/light/
 
 - Backbone.js is not a complete application structure framework, thus many details are left for the developer.
 - In order to avoid problems and keep up with the good practices, frameworks as Marionette.js and Epoxy.js are very handy.
-- Mocking AJAX with Sinon.JS provides a solid way to test Backbone.js integration.
+- Mocking async calls with Sinon.JS provides a solid way to test Backbone.js integration.
 
 ---
 
