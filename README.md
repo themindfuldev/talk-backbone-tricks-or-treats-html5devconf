@@ -58,10 +58,10 @@ Oct 20th, 2014
 - Think twice before saying AJAX ever again.
 - AJAX = *A*synchronous *J*avascript *A*nd *X*ML.
 - AJAJ = *A*synchronous *J*avascript *A*nd *J*SON.
-- Some will say it is because of *XMLHttpRequest* but I don't buy it. *XMLHttpRequest* can transfer any format.
+- It is hardly because of *XMLHttpRequest* object -> it can transfer any format.
 - RESTful servers became popular -> I don't quite see XML responses ever since.
-- No simple XML support on popular MV* frameworks.
-- However, *AJAJ* doesn't sound as cool as *AJAX* so presenters don't like to use it.
+- XML lacks out-of-the-box support on MV* frameworks.
+- However, *AJAJ* doesn't sound as cool as *AJAX* so people prefer not using the proper term.
 - *ASYNC*, FTW! Who will join me?
 
 ----
@@ -74,8 +74,8 @@ Oct 20th, 2014
 
 ## The jQuery Way
 
-- Backbone depends on jQuery*, but depending !== abusing.
-- Starters tend to adopt jQuery-based solutions instead of taking advantage of Backbone.js structures:
+- Backbone depends on jQuery\*, but *depending !== abusing*.
+- Beginners tend to adopt jQuery-based solutions instead of taking advantage of Backbone.js structures:
   - *Backbone.Model* takes care of async calls so they **SHOULDN'T** be coded like *`$.ajax()`*.
   - *Backbone.View* takes care of DOM events binding so they **SHOULDN'T** be coded like *`$(el).click(...)`*.
 - A common scenario in code migrations to Backbone, but simple to fix. Just put Models and Views to do their work.
@@ -511,7 +511,9 @@ Oct 20th, 2014
 
 <img src="img/epoxy.png" class="icon" />
 
-- *Epoxy.js* is a data binding library for Backbone.js based on Knockout.js and Ember.js, featuring:
+- *Epoxy.js* is a data binding library for<br/>
+Backbone.js based on Knockout.js<br/>
+and Ember.js, featuring:
   - Declarative View Bindings
   - Automatic View Updates
   - Computed Model & View Attributes
@@ -582,8 +584,8 @@ http://jsfiddle.net/tiagorg/5L9qxnsq/1/
 
 <img src="img/sinon.png" class="icon" />
 
-- Provides test spies, stubs and mocks for JavaScript.
-- Works with any unit testing framework and also standalone.
+- Test spies, stubs and mocks for async.
+- Works with any testing framework<br/> and also standalone.
 ```javascript
   var server = sinon.fakeServer.create();
   server.autoRespond = true;

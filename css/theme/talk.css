@@ -159,6 +159,8 @@ body {
   background-color: #2b2b2b; }
   .reveal.center .slides section {
     min-height: 100%; }
+    .reveal.center .slides section pre {
+      min-width: 800px; }
     .reveal.center .slides section img.avatar {
       -webkit-border-radius: 10px;
       -moz-border-radius: 10px;
@@ -168,6 +170,7 @@ body {
       width: 100%; }
     .reveal.center .slides section img.icon {
       max-height: 250px;
+      max-width: 250px;
       border: 0;
       background: none;
       position: absolute;
