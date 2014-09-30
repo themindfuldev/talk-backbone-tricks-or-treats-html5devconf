@@ -98,7 +98,7 @@ Oct 20th, 2014
   });
 ```
 - *MyView* gets instantiated twice: 1st will never be Garbage Collected, as the model holds its reference -> *Zombie View*.
-- This can cause *side-effects* -> alert box will appear twice.
+- This can cause *side effects* -> alert box will appear twice.
 
 ----
 
@@ -574,9 +574,10 @@ http://jsfiddle.net/tiagorg/5L9qxnsq/1/
 ## Mocking async calls
 
 - How to unit test Models that consume data from a server?
-- Using a real server can be slow, and the server must be up at all times, otherwise the tests will probably fail.
-- By using mocks we no longer depend on a server, however it deviates from testing the model the way it will be used in Production.
-- What about replacing the browser async mechanism with a mock-powered proxy?
+- Using a real server can be slow. The server must also be up at all times, otherwise the tests will probably fail.
+- Using *data mocks* frees us from server dependency. 
+- However, it deviates from the way the Model will actually be used in Production, which creates challenges for testing.
+- What about replacing the browser async mechanism with a *mock-powered proxy*?
 
 ----
 
@@ -609,8 +610,10 @@ http://jsfiddle.net/tiagorg/5L9qxnsq/1/
 ## Conclusion
 
 - Backbone.js is not a complete application structure framework, thus many details are left for the developer.
-- In order to avoid problems and keep up with the good practices, frameworks as Marionette.js and Epoxy.js are very handy.
-- Mocking async calls with Sinon.JS provides a solid way to test Backbone.js integration.
+- In order to avoid problems and keep up with the good practices, *Marionette.js* comes very handy.
+- Data binding can be made easy with *Epoxy.js*.
+- *React.js* can greatly optimize the View layer on CPU-intensive apps.
+- Mocking async calls with *Sinon.JS* provides a solid way to test Backbone.js integration.
 
 ---
 
