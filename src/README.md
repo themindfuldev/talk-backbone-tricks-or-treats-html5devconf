@@ -559,11 +559,12 @@ and Ember.js, featuring:
 
 - *Backbone.View* is not designed for performance.
 - CPU-intensive rendering is faded to hang/crash.
-- *React.js* takes it to the next level by using:
+- *React* takes it to the next level by using:
   - Virtual DOM
   - Data flow instead of Data binding
+  - Components (abstraction, composition and expressivity)
   - Bonus: works on the server-side!
-- *React.js* can replace the whole View layer and dismiss *Backbone.View*s.
+- *React* can replace the whole *Backbone.View* layer.
 - It just takes a mixin to be integrated with Backbone, or something as [react.backbone](https://github.com/clayallsopp/react.backbone).
 
 http://jsfiddle.net/tiagorg/5L9qxnsq/
