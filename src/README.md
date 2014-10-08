@@ -563,11 +563,10 @@ and Ember.js, featuring:
   - Virtual DOM
   - Data flow instead of Data binding
   - Bonus: works on the server-side!
-- *React.js* can be used as the V of the MV*, replacing/supporting *Backbone.View*s.
-- Just needs a mixin to be integrated with Backbone, or something like [react.backbone](https://github.com/clayallsopp/react.backbone)
+- *React.js* can replace the whole View layer and dismiss *Backbone.View*s.
+- It just takes a mixin to be integrated with Backbone, or something as [react.backbone](https://github.com/clayallsopp/react.backbone).
 
-http://jsfiddle.net/jhohlfeld/cS66g/light/
-http://jsfiddle.net/tiagorg/5L9qxnsq/1/
+http://jsfiddle.net/tiagorg/5L9qxnsq/
 
 ---
 
