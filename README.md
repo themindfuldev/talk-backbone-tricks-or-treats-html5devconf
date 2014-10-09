@@ -39,7 +39,7 @@ Oct 20th, 2014
  - Cohesion
  - Coupling
  - Data binding
- - More reactive Views
+ - Components
  - Mocking async calls
 
 ---
@@ -553,21 +553,52 @@ and Ember.js, featuring:
 
 ---
 
-## More reactive Views
+## Components
 
 <img src="img/react.png" class="icon" />
 
-- *Backbone.View* is not designed for performance.
-- CPU-intensive rendering is faded to hang/crash.
-- *React* takes it to the next level by using:
-  - Virtual DOM
-  - Data flow instead of Data binding
-  - Components (abstraction, composition and expressivity)
+- Views reusability for real? Think components.
+- *Web Components* spec is right around the corner.
+- *React* is a View framework about:
+  - Elements (DOM) vs. Templates (strings)
+  - Components (abstraction, composition and expressivity)   
+  - Virtual DOM 
+  - Reactive data flow (or *ReactLink* for Two-way)
   - Bonus: works on the server-side!
 - *React* can replace the whole *Backbone.View* layer.
 - It just takes a mixin to be integrated with Backbone, or something as [react.backbone](https://github.com/clayallsopp/react.backbone).
 
-http://jsfiddle.net/tiagorg/5L9qxnsq/
+----
+
+## React.js
+
+```javascript
+  var bindModel = new Backbone.Model({
+    name: 'Lando Calrissian'
+  });
+
+  var BindingView = React.createBackboneClass({
+    render: function() {
+      return (
+        React.DOM.span( 
+          { className: 'name' }, this.getModel().get('name')
+        )
+      );
+    }
+  });
+
+  React.renderComponent(
+    BindingView({ model: bindModel }), document.getElementById('my-form')
+  );
+```
+
+---
+
+## Benchmark
+
+- http://jsfiddle.net/tiagorg/5L9qxnsq/
+- Yes, structure and data binding have a price....
+- ...so as the chaos of not having them!
 
 ---
 
@@ -612,7 +643,7 @@ http://jsfiddle.net/tiagorg/5L9qxnsq/
 - Backbone.js is not a complete application structure framework, thus many details are left for the developer.
 - In order to avoid problems and keep up with the good practices, *Marionette.js* comes very handy.
 - Data binding can be made easy with *Epoxy.js*.
-- *React.js* can greatly optimize the View layer on CPU-intensive apps.
+- *React.js* can greatly componentize your View layer.
 - Mocking async calls with *Sinon.JS* provides a solid way to test Backbone.js integration.
 
 ---
@@ -621,18 +652,27 @@ http://jsfiddle.net/tiagorg/5L9qxnsq/
 
 1. [Structuring jQuery with Backbone.js](http://www.codemag.com/Article/1312061)
 1. [Step by step from jQuery to Backbone](https://github.com/kjbekkelund/writings/blob/master/published/understanding-backbone.md)
-1. [Zombies! RUN! (Managing Page Transitions In Backbone Apps)](http://lostechies.com/derickbailey/2011/09/15/zombies-run-managing-page-transitions-in-backbone-apps/)
+1. [Zombies! RUN! (Managing Page Transitions In Backbone)](http://lostechies.com/derickbailey/2011/09/15/zombies-run-managing-page-transitions-in-backbone-apps/)
 1. [Developing Backbone.js Applications](http://addyosmani.github.io/backbone-fundamentals)
 1. [Marionette.js](https://github.com/marionettejs/backbone.marionette)
 1. [Reducing Backbone Routers To Nothing More Than Configuration](http://lostechies.com/derickbailey/2012/01/02/reducing-backbone-routers-to-nothing-more-than-configuration/)
 1. [Epoxy.js](http://epoxyjs.org)
+1. [React](http://facebook.github.io/react/)
 1. [Sinon.JS](http://sinonjs.org)
+
+---
+
+## Meetups
+
+1. [Backbone.js Hackers](http://www.meetup.com/Backbone-js-Hackers/) - San Francisco
+1. [Dancing with Marionette](http://www.meetup.com/Dancing-with-Marionette-js/) - New York
+1. [ReactJS](http://www.meetup.com/ReactJS-San-Francisco/) - San Francisco
 
 ---
 
 ## Challenge
 
 1. Fork my [Quiz App](https://github.com/tiagorg/quiz-app) or come up with a brand new Backbone.js application which requires interaction with the user.
-1. Implement *Marionette.js* and either *React.js* or *Epoxy.js* on this project. Explore them well and use their features as much as possible.
+1. Use *Marionette.js* and either *React.js* or *Epoxy.js*. Explore them well and use their features as much as possible.
 1. Evaluate the pros and cons of your solution regarding the adoption of such frameworks, in terms of code organization, verbosity, scalability and robustness.
 1. Send me your analysis and project in a GitHub repo.
