@@ -22,9 +22,10 @@ Oct 20th, 2014
 
 <img src="http://www.gravatar.com/avatar/5cac784a074b86d771fe768274f6860c?s=250" class="avatar">
 
-- Tech Manager at [Avenue Code](http://www.avenuecode.com) and Tech Lead at [Macys.com](http://www.macys.com).
+- Tech Manager at [Avenue Code](http://www.avenuecode.com) 
+- Tech Lead at [Macys.com](http://www.macys.com).
 - Organizer of the [Backbone.js Hackers meetup in SF](http://www.meetup.com/Backbone-js-Hackers).
-- Heavily interested in cutting-edge front-end technologies. 
+
 
 ---
 
@@ -58,8 +59,8 @@ Oct 20th, 2014
 - Think twice before saying AJAX ever again.
 - AJAX = *A*synchronous *J*avascript *A*nd *X*ML.
 - AJAJ = *A*synchronous *J*avascript *A*nd *J*SON.
-- It is hardly because of *XMLHttpRequest* object -> it can transfer any format.
-- RESTful servers became popular -> I don't quite see XML responses ever since.
+- It is hardly because of *XMLHttpRequest* object -> it can transfer in any format.
+- RESTful APIs became popular -> I don't quite see XML responses ever since.
 - XML lacks out-of-the-box support on MV* frameworks.
 - However, *AJAJ* doesn't sound as cool as *AJAX* so people prefer not using the proper term.
 - *ASYNC*, FTW! Who will join me?
@@ -75,7 +76,7 @@ Oct 20th, 2014
 ## The jQuery Way
 
 - Backbone depends on jQuery\*, but *depending !== abusing*.
-- Beginners tend to adopt jQuery-based solutions instead of taking advantage of Backbone.js structures:
+- Newcomers tend to adopt jQuery-based solutions instead of taking advantage of Backbone.js structures:
   - *Backbone.Model* takes care of async calls so they **SHOULDN'T** be coded like *`$.ajax()`*.
   - *Backbone.View* takes care of DOM events binding so they **SHOULDN'T** be coded like *`$(el).click(...)`*.
 - A common scenario in code migrations to Backbone, but simple to fix. Just put Models and Views to do their work.
@@ -85,7 +86,7 @@ Oct 20th, 2014
 
 ## Views and Memory leaks
 
-- Backbone leaves the code structure for the developer to define and implement.
+- Backbone leaves much of the code structure for the developer to define and implement.
 - Bad designs easily lead to memory leaks.
 ```javascript
   var MyView = Backbone.View.extend({
@@ -466,27 +467,28 @@ Oct 20th, 2014
 
 ----
 
-## Marionette's Application.vent
+## Backbone.Radio
 
-- *Marionette.Application.vent* also implements a Pub/Sub:
+- [Backbone.Radio](https://github.com/marionettejs/backbone.radio) also implements a Pub/Sub:
 ```javascript
   MyApp.module('alerter', function() {   // Subscriber
     this.addInitializer(function() {
-      MyApp.vent.on('sayIt', function() {
+      Backbone.Radio.channel('alerter').on('sayIt', function() {
         alert('May the force be with you.');
       });
     });
   });
 
-  MyApp.module('invoker', function() {    // Publisher
+  MyApp.module('invoker', function() {   // Publisher
     this.addInitializer(function() {
-      MyApp.vent.trigger('sayIt');
+      Backbone.Radio.channel('alerter').trigger('sayIt');
     });
   });
 
   MyApp.module('alerter').start();
   MyApp.module('invoker').start();
 ```
+- This will be replacing *Backbone.Wreqr* on Marionette.js.
 
 ---
 
@@ -525,6 +527,15 @@ and Ember.js, featuring:
 
 ## Epoxy.js
 
+```html
+  <!-- Plain HTML template -->
+  <div id="my-form">
+    <label>Name:</label>
+    <input type="text" class="name">
+    <span class="name"></span>
+  </div>
+```
+
 ```javascript
   var bindModel = new Backbone.Model({
     name: 'Lando Calrissian'
@@ -541,27 +552,16 @@ and Ember.js, featuring:
   var view = new BindingView({ model: bindModel });
 ```
 
-```html
-  <!-- Plain HTML template -->
-  <div id="my-form">
-    <label>Name:</label>
-    <input type="text" class="name">
-
-    <span class="name"></span>
-  </div>
-```
-
 ---
 
 ## Components
 
-<img src="img/react.png" class="icon" />
-
 - Views reusability for real? Think components.
 - *Web Components* spec is right around the corner.
 - *React* is a View framework about:
+<img src="img/react.png" class="icon" />
+  - Components! (abstraction & composition)
   - Elements (DOM) vs. Templates (strings)
-  - Components (abstraction, composition and expressivity)   
   - Virtual DOM 
   - Reactive data flow (or *ReactLink* for Two-way)
   - Bonus: works on the server-side!
@@ -596,7 +596,7 @@ and Ember.js, featuring:
 
 ## Benchmark
 
-- http://jsfiddle.net/tiagorg/5L9qxnsq/
+- <a href="http://jsfiddle.net/tiagorg/5L9qxnsq/" target="_blank">JSFiddle</a>
 - Yes, structure and data binding have a price....
 - ...so as the chaos of not having them!
 
@@ -617,7 +617,7 @@ and Ember.js, featuring:
 <img src="img/sinon.png" class="icon" />
 
 - Test spies, stubs and mocks for async.
-- Works with any testing framework<br/> and also standalone.
+- Framework-agnostic.
 ```javascript
   var server = sinon.fakeServer.create();
   server.autoRespond = true;
@@ -635,6 +635,7 @@ and Ember.js, featuring:
     ]
   );
 ```
+- Goes well with [Leche](https://github.com/box/leche) for mock creation.
 
 ---
 
@@ -656,9 +657,11 @@ and Ember.js, featuring:
 1. [Developing Backbone.js Applications](http://addyosmani.github.io/backbone-fundamentals)
 1. [Marionette.js](https://github.com/marionettejs/backbone.marionette)
 1. [Reducing Backbone Routers To Nothing More Than Configuration](http://lostechies.com/derickbailey/2012/01/02/reducing-backbone-routers-to-nothing-more-than-configuration/)
+1. [Backbone.Radio](https://github.com/marionettejs/backbone.radio)
 1. [Epoxy.js](http://epoxyjs.org)
 1. [React](http://facebook.github.io/react/)
 1. [Sinon.JS](http://sinonjs.org)
+1. [Leche](https://github.com/box/leche)
 
 ---
 
